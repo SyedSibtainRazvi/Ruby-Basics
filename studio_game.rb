@@ -99,6 +99,14 @@ class Movie
         @the_rank = rank
     end
 
+    def thumbs_up 
+        @the_rank += 1
+    end
+
+    def thumbs_down
+        @the_rank -= 1
+    end
+
     def listing
         "#{@the_title.capitalize} has a rank of #{@the_rank}."
     end
@@ -108,10 +116,12 @@ end
 # These are instance methods of the class Movie
 
 movie1 = Movie.new("The Three Stooges", 10)
+movie1.thumbs_up
 puts movie1.listing
 
 
 movie2 = Movie.new("Dictator", 9)
+movie2.thumbs_down
 puts movie2.listing
 
 movie3 = Movie.new("Jumangi")
@@ -128,4 +138,4 @@ puts movie4
 puts movie4.to_s
 
 # Now we will override the to_s method of the Object class in our Movie class
-class Movie
+# class Movie
