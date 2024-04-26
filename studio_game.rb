@@ -115,6 +115,11 @@ end
 
 # These are instance methods of the class Movie
 
+#Class names start with an uppercase letter.
+# Method names start with a lowercase letter.
+# Variable names start with a lowercase letter.
+# Instances variables start with an @ sign.
+
 movie1 = Movie.new("The Three Stooges", 10)
 movie1.thumbs_up
 puts movie1.listing
