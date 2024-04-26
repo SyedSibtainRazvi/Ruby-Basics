@@ -91,3 +91,41 @@ end
 puts movie_listing("The Three Stooges", 10)
 puts movie_listing("Dictator", 9)
 puts movie_listing("Jumangi")
+
+class Movie
+    def initialize(title, rank=0)
+        # Instance variables are available throughout the class and are prefixed with @
+        @the_title = title
+        @the_rank = rank
+    end
+
+    def listing
+        "#{@the_title.capitalize} has a rank of #{@the_rank}."
+    end
+
+end
+
+# These are instance methods of the class Movie
+
+movie1 = Movie.new("The Three Stooges", 10)
+puts movie1.listing
+
+
+movie2 = Movie.new("Dictator", 9)
+puts movie2.listing
+
+movie3 = Movie.new("Jumangi")
+puts movie3.listing
+
+movie4 = Movie.new("Code 6", 8)
+puts movie4
+
+# If we do this, puts us is going to try to convert that object into its string representation
+# And the way it does this is, it calls the to_s method on the object
+# If we do not define to_s method in our class, it will call the to_s method of the parent class which is Object
+# And the default to_s method of Object is to return the object's class and object ID and returns something like this
+# #<Movie:0x0000000001f3e8a0>
+puts movie4.to_s
+
+# Now we will override the to_s method of the Object class in our Movie class
+class Movie
