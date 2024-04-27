@@ -107,6 +107,17 @@ class Movie
         @the_rank -= 1
     end
 
+    attr_reader :the_title 
+
+    # We can also define a method to change the title of the movie, these are called setter/writer methods
+    def new_title(new_title)
+        @the_title = new_title
+    end
+
+    def normalised_rank
+        @the_rank / 10
+    end
+
     def listing
         "#{@the_title.capitalize} has a rank of #{@the_rank}."
     end
@@ -138,9 +149,50 @@ puts movie4
 # If we do this, puts us is going to try to convert that object into its string representation
 # And the way it does this is, it calls the to_s method on the object
 # If we do not define to_s method in our class, it will call the to_s method of the parent class which is Object
+
 # And the default to_s method of Object is to return the object's class and object ID and returns something like this
 # #<Movie:0x0000000001f3e8a0>
 puts movie4.to_s
 
 # Now we will override the to_s method of the Object class in our Movie class
 # class Movie
+
+
+#object state is private to the object and can only be accessed by the object itself
+#object behavior is public and can be accessed by other objects
+
+# And if we do the below, we get noMethodError because the title is private to the object and can only be accessed by the object itself
+#object encapsulates its state and behavior
+    # puts movie1.title
+
+# We can define a method in the class to return the title of the movie
+# Also called a getter method
+
+# def title
+#     @the_title
+# end
+
+# or we can use the attr_reader method to define the getter method
+# attr_reader :the_title, rank, etc
+
+puts movie1.the_title
+
+ # The shortcut to define getter and setter methods is to use the attr_accessor method
+ # attr_accessor :the_title, :the_rank . This is the same as defining both getter and setter methods
+ #attr_writer :the_title 
+ # we can define them at the top of the class
+    
+     # We can also define a method to change the title of the movie, these are called setter/writer methods
+    # def new_title(new_title)
+    #     @the_title = new_title
+    # end
+
+    # Also all our attributes matches the instance variables.
+    
+    puts movie1.the_title
+
+puts movie1.new_title("The Three Stooges 2")
+
+# Virtual attributes are attributes that are not stored in the object but are calculated on the fly
+
+puts movie1.normalised_rank
