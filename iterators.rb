@@ -1,7 +1,9 @@
-def once
+def thrice
     puts "I am going to yield"
-  yield
+     yield 1
+     yield 2
+     yield 3
     puts "I have yielded"
 end
 
-once { puts "Say Syed Sibtain"}
+thrice { |number| puts "Say Syed Sibtain",number}
